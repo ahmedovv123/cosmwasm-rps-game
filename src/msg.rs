@@ -1,10 +1,8 @@
-use std::ops::Add;
-
 use cosmwasm_std::{Addr, Response};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
-use crate::state::{GameMove, GameResult, Game};
+use crate::state::{Game, GameMove, GameResult};
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub struct InstantiateMsg {
@@ -15,11 +13,23 @@ pub struct InstantiateMsg {
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum ExecuteMsg {
-    StartGame { opponent: String, first_move: GameMove },
-    UpdateAdmin { address: String },
-    AddHook { address: String },
-    RemoveHook { address: String },
-    Respond { host: String, second_move: GameMove },
+    StartGame {
+        opponent: String,
+        first_move: GameMove,
+    },
+    UpdateAdmin {
+        address: String,
+    },
+    AddHook {
+        address: String,
+    },
+    RemoveHook {
+        address: String,
+    },
+    Respond {
+        host: String,
+        second_move: GameMove,
+    },
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -39,7 +49,9 @@ pub struct ResultResponse {
 
 impl Into<Response> for ResultResponse {
     fn into(self) -> Response {
-        Response::new().add_attribute("game_status", "finished").add_attribute("Result", self.result.to_string())
+        Response::new()
+            .add_attribute("game_status", "finished")
+            .add_attribute("Result", self.result.to_string())
     }
 }
 

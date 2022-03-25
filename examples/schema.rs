@@ -3,7 +3,7 @@ use std::fs::create_dir_all;
 
 use cosmwasm_schema::{export_schema, remove_schemas, schema_for};
 
-use rps::msg::{ResultResponse, ExecuteMsg, InstantiateMsg, QueryMsg};
+use rps::msg::{ExecuteMsg, InstantiateMsg, QueryMsg, ResultResponse};
 use rps::state::State;
 
 fn main() {

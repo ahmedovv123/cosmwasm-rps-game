@@ -10,7 +10,7 @@ use cw_storage_plus::{Item, Map};
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 
 pub struct State {
-    pub owner: Addr
+    pub owner: Addr,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -19,7 +19,7 @@ pub struct Game {
     pub opponent: Addr,
     pub host_move: GameMove,
     pub opp_move: Option<GameMove>,
-    pub result: Option<GameResult>
+    pub result: Option<GameResult>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -27,15 +27,15 @@ pub struct Game {
 pub enum GameMove {
     Rock {},
     Paper {},
-    Scissors {}
+    Scissors {},
 }
 
 impl Display for GameMove {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            GameMove::Rock {  } => write!(f, "Rock"),
-            GameMove::Paper {  } => write!(f, "Paper"),
-            GameMove::Scissors {  } => write!(f, "Scissors"),
+            GameMove::Rock {} => write!(f, "Rock"),
+            GameMove::Paper {} => write!(f, "Paper"),
+            GameMove::Scissors {} => write!(f, "Scissors"),
         }
     }
 }
@@ -44,15 +44,15 @@ impl Display for GameMove {
 pub enum GameResult {
     HostWins {},
     OpponentWins {},
-    Tie {}
+    Tie {},
 }
 
 impl Display for GameResult {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             GameResult::HostWins {} => write!(f, "Host Wins!"),
-            GameResult::OpponentWins {  } => write!(f, "Opponent Wins!"),
-            GameResult::Tie {  } => write!(f, "Game is Tie !")
+            GameResult::OpponentWins {} => write!(f, "Opponent Wins!"),
+            GameResult::Tie {} => write!(f, "Game is Tie !"),
         }
     }
 }
