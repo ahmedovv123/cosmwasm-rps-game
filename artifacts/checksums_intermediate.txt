@@ -1,0 +1,1 @@
+534fd04c1e33792430dc82862250c9d9b9f5fb0f3981ca549af5f88676d94226  ./target/wasm32-unknown-unknown/release/rps.wasm

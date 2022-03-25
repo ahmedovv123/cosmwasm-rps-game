@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "QueryMsg",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "get_result"
+      ],
+      "properties": {
+        "get_result": {
+          "type": "object",
+          "required": [
+            "host"
+          ],
+          "properties": {
+            "host": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}
