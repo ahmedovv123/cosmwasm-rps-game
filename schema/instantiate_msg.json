@@ -6,6 +6,12 @@
     "owner"
   ],
   "properties": {
+    "admin": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "owner": {
       "$ref": "#/definitions/Addr"
     }

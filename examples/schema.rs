@@ -3,8 +3,8 @@ use std::fs::create_dir_all;
 
 use cosmwasm_schema::{export_schema, remove_schemas, schema_for};
 
-use rps::msg::{ExecuteMsg, InstantiateMsg, QueryMsg, ResultResponse};
-use rps::state::State;
+use rps::msg::{ExecuteMsg, InstantiateMsg, QueryMsg, ResultResponse, GameResponse};
+use rps::state::{State, Game, GameResult, GameMove };
 
 fn main() {
     let mut out_dir = current_dir().unwrap();
@@ -16,5 +16,10 @@ fn main() {
     export_schema(&schema_for!(ExecuteMsg), &out_dir);
     export_schema(&schema_for!(QueryMsg), &out_dir);
     export_schema(&schema_for!(State), &out_dir);
+    export_schema(&schema_for!(Game), &out_dir);
     export_schema(&schema_for!(ResultResponse), &out_dir);
+    export_schema(&schema_for!(GameResponse), &out_dir);
+    export_schema(&schema_for!(GameResult), &out_dir);
+    export_schema(&schema_for!(GameMove), &out_dir);
+
 }

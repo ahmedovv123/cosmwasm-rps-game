@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GameResult",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "HostWins"
+      ],
+      "properties": {
+        "HostWins": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "OpponentWins"
+      ],
+      "properties": {
+        "OpponentWins": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "Tie"
+      ],
+      "properties": {
+        "Tie": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

@@ -11,13 +11,29 @@
         "get_result": {
           "type": "object",
           "required": [
-            "host"
+            "host",
+            "opponent"
           ],
           "properties": {
             "host": {
               "type": "string"
+            },
+            "opponent": {
+              "type": "string"
             }
           }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "get_admin"
+      ],
+      "properties": {
+        "get_admin": {
+          "type": "object"
         }
       },
       "additionalProperties": false

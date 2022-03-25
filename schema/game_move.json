@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GameMove",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "rock"
+      ],
+      "properties": {
+        "rock": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "paper"
+      ],
+      "properties": {
+        "paper": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "scissors"
+      ],
+      "properties": {
+        "scissors": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

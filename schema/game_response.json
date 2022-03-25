@@ -1,0 +1,141 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GameResponse",
+  "type": "object",
+  "required": [
+    "result"
+  ],
+  "properties": {
+    "result": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Game"
+      }
+    }
+  },
+  "definitions": {
+    "Addr": {
+      "description": "A human readable address.\n\nIn Cosmos, this is typically bech32 encoded. But for multi-chain smart contracts no assumptions should be made other than being UTF-8 encoded and of reasonable length.\n\nThis type represents a validated address. It can be created in the following ways 1. Use `Addr::unchecked(input)` 2. Use `let checked: Addr = deps.api.addr_validate(input)?` 3. Use `let checked: Addr = deps.api.addr_humanize(canonical_addr)?` 4. Deserialize from JSON. This must only be done from JSON that was validated before such as a contract's state. `Addr` must not be used in messages sent by the user because this would result in unvalidated instances.\n\nThis type is immutable. If you really need to mutate it (Really? Are you sure?), create a mutable copy using `let mut mutable = Addr::to_string()` and operate on that `String` instance.",
+      "type": "string"
+    },
+    "Game": {
+      "type": "object",
+      "required": [
+        "host",
+        "host_move",
+        "opponent"
+      ],
+      "properties": {
+        "host": {
+          "$ref": "#/definitions/Addr"
+        },
+        "host_move": {
+          "$ref": "#/definitions/GameMove"
+        },
+        "opp_move": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/GameMove"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "opponent": {
+          "$ref": "#/definitions/Addr"
+        },
+        "result": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/GameResult"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "GameMove": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "rock"
+          ],
+          "properties": {
+            "rock": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "paper"
+          ],
+          "properties": {
+            "paper": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "scissors"
+          ],
+          "properties": {
+            "scissors": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "GameResult": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "HostWins"
+          ],
+          "properties": {
+            "HostWins": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "OpponentWins"
+          ],
+          "properties": {
+            "OpponentWins": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "Tie"
+          ],
+          "properties": {
+            "Tie": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}
