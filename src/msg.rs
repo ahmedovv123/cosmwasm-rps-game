@@ -47,11 +47,11 @@ pub struct ResultResponse {
     pub result: GameResult,
 }
 
-impl Into<Response> for ResultResponse {
-    fn into(self) -> Response {
+impl From<ResultResponse> for Response {
+    fn from(res: ResultResponse) -> Self {
         Response::new()
             .add_attribute("game_status", "finished")
-            .add_attribute("Result", self.result.to_string())
+            .add_attribute("Result", res.result.to_string())
     }
 }
 
